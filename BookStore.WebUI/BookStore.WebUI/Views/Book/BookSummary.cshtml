@@ -1,0 +1,26 @@
+﻿@model BookStore.Domain.Entity.Book
+
+<div class="well">
+    @if (Model.ImageData != null)
+    {
+        <div class="pull-left" style="margin-left:10px;">
+            <img class="img-rounded" width="100px" height="100px" src="@Url.Action("GetImage","Book",new { Model.ISBN})" />
+
+        </div>
+
+    }
+    <h3>
+        <strong>
+            @Model.Title
+            </strong>
+        <span class="pull-right label label-primary">@Model.Price.ToString("c")</span>
+    </h3>
+<div class="pull-right">
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        @Html.HiddenFor(c => c.ISBN);
+        @Html.Hidden("returnUrl",Request.Url.PathAndQuery);
+        <input type="submit" class="btn btn-success" value="Add to cart" />
+    }
+</div>
+</div>

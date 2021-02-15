@@ -1,0 +1,78 @@
+﻿@model BookStore.Domain.Entity.Book
+@{
+    ViewBag.Title = "Admin Edit"+ Model.Title;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    HtmlHelper.ClientValidationEnabled = false;
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+}
+<div class="panel">
+
+    <div class="panel-heading">
+        <h1>Edit @Model.Title</h1>
+    </div>
+
+
+
+    @using (Html.BeginForm("Edit","Admin",FormMethod.Post,new {enctype="multipart/form-data" }))
+    {
+        <div class="panel-body">
+            <div class="form-group">
+                <label>ISBN</label>
+            @Html.TextBox("ISBN",null,new {@class= "form-control", @disabled= "disabled" })
+             </div>
+            @foreach (var properity in ViewData.ModelMetadata.Properties)
+            {
+                if (properity.PropertyName != "ISBN" &&
+                    properity.PropertyName != "ImageData" &&
+                    properity.PropertyName != "ImageMimeType")
+                {
+
+            <div class="form-group">
+                <label>@(properity.DisplayName ?? properity.PropertyName):</label>
+                @if (properity.PropertyName == "Description")
+                        {
+                        @Html.TextArea(properity.PropertyName, null, new { @class = "form-control", rows = 5 })
+                        }
+                        else
+                        {
+                        @Html.TextBox(properity.PropertyName, null, new { @class = "form-control" })
+                        }
+                @Html.ValidationMessage(properity.PropertyName)
+            </div>
+
+                }
+
+            }
+            <div class="form-control">
+                <div style="position:relative">
+                    <label>Image:</label>
+                    <a class="btn" href="javasecript:;">
+                        Choose Image ...
+                        <input type="file" name="Image"
+                                size="40" 
+                               style="position:absolute;z-index:2;top:0;left:0;
+                           filter:alpha(opacity:30);opacity:30;background-color:transparent;color:transparent";
+                               onchange='$("upload file info").html($(this).val());' />
+                        </a>
+                    <span class="label label-info" id="upload file info" > </span>
+                </div>
+                @if (Model.ImageData == null)
+                {
+                    <div class="form-control-static">No image</div>
+                }
+                else
+                {
+                    <img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage","Book",new {Model.ISBN })">
+                }
+            </div>
+         
+        </div>
+
+
+        <div class="panel-footer">
+            <input type="submit" value="save" class="btn btn-primary" />
+            @Html.ActionLink("Cancel and return to the list", "Index", new { @class = "btn btn-default" })
+        </div>
+
+    }
+</div>

@@ -1,0 +1,48 @@
+﻿@model RasorExamples.Models.Product
+
+@{
+    ViewBag.Title = "Demo";
+}
+
+<h2>Demo</h2>
+<table>
+    <thead> <tr> <th> Probertiyes </th> <th>Value </th></tr> </thead> 
+    <tbody><tr> <td> Name </td> <td> @Model.Name</td></tr>
+    <tr> <td> Sore Level </td> <td> @ViewBag.Productcount</td></tr>
+    <tr>
+        <td>TEST SWITCH: </td>
+        //M1
+        <td>
+            
+        @*    @switch ((int)ViewBag.Productcount)
+        {
+            case 0: @: The value is Zero
+            break;
+            case 1:
+            case 2:
+                @:The value is correct acoording to OR
+                break;
+                default: @:The default value  
+                break;
+
+
+        }*@
+        //M2
+        @if (ViewBag.Productcount == 0)
+        {
+            @:The vle is Zero
+            }
+        @if (ViewBag.Productcount > 0 || ViewBag.Productcount > 1)
+        {
+            @:The value is
+         @ViewBag.Productcount;
+        }
+          </td>
+        </tr>
+    </tbody>
+
+ </table>
+Disconet : <input type="checkbox" checked="@ViewBag.Discounted" />
+<div data-discount="@ViewBag.Discounted">
+    TEST
+    </div>

@@ -1,0 +1,59 @@
+﻿@model WebApplication3.Models.Class1
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Regestiration</title>
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center">  <h4> Regestiration Panel </h4></div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary();
+                <div class="form-group">
+                    <label>Your Name :</label>
+                @Html.TextBoxFor(x => x.name,new {@class="form-control" } ) 
+                </div>
+
+
+                <div class="form-group">
+                    <label>Your Email :</label>
+                     @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Your Phone :</label>
+                    @Html.TextBoxFor(x => x.phone, new { @class = "form-control" }) 
+                </div>
+
+
+                <div class="form-group">
+                    <label>Will Draw:</label>
+                     @Html.DropDownListFor(x => x.withdraw, new[] { new SelectListItem() { Text = "A" ,Value = bool.TrueString }, new SelectListItem() { Text = "B", Value = bool.FalseString }
+        }, "Choices", new { @class = "form-control" }) 
+                </div>
+
+                <p>
+                    
+                </p>
+                <input type="submit" value="Regestiration" class="btn btn-success" />
+
+            }
+        </div>
+    </div>
+</body>
+</html>

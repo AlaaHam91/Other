@@ -1,0 +1,31 @@
+﻿@model IEnumerable<string>
+@{
+    bool IsHorezintal = (bool)(ViewContext.RouteData.Values["mobilelayout"] ?? false);
+    string style1 = "btn btn-default btn-sm";
+    string style2 = "btn btn-block btn-default btn-lg";
+    string Warrperclasses = IsHorezintal ? "btn-group btn-group-sm btn-group-justifed" : null ;
+        }
+<div class="@Warrperclasses">
+@Html.ActionLink("Home", "List", "Book", null,
+    new { @class = IsHorezintal ? style1: style2 })
+@foreach (var link in Model)
+{
+
+    @Html.RouteLink(link,
+        new
+        {
+            controller = "Book",
+            action = "List",
+            specilization = link,
+            pagenum = 1
+        },
+        new { @class = (IsHorezintal ? style1 : style2)
+        + ((ViewBag.SelectedSpec == link) ? " btn-primary" : "").ToString(),
+            @style = "overflow.hidden;text-overflow ellipsis;"
+        })
+
+
+
+
+}
+</div>

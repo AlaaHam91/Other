@@ -1,0 +1,115 @@
+﻿@model BookStore.Domain.Entity.Book
+@{
+    ViewBag.Title = "Admin Edit"+ Model.Title;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit @Model.Title</h1>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(b=>b.ISBN)  if (properity.PropertyName != "ISBN")
+        {
+
+
+
+#line default
+#line hidden
+
+#line 7 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+            __o = properity.DisplayName ?? properity.PropertyName;
+
+
+#line default
+#line hidden
+
+#line 8 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+            if (properity.PropertyName == "Description")
+
+
+
+
+#line default
+#line hidden
+
+#line 9 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+                __o = Html.TextArea(properity.PropertyName, null, new { @class = "form-control", rows = 5 });
+
+
+#line default
+#line hidden
+
+#line 10 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+
+        }
+        else
+
+
+
+
+#line default
+#line hidden
+
+#line 11 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+            __o = Html.TextBox(properity.PropertyName, null, new { @class = "form-control" });
+
+
+#line default
+#line hidden
+
+#line 12 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+
+    }
+
+
+#line default
+#line hidden
+
+#line 13 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+
+
+}
+
+
+#line default
+#line hidden
+
+#line 13 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+
+
+}
+
+    }
+
+#line default
+#line hidden
+
+#line 14 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+    __o = Html.ActionLink("Cancel and return to the list","Index");
+
+
+#line default
+#line hidden
+
+#line 15 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+        }
+
+    }
+
+#line default
+#line hidden
+
+#line 13 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+    __o = Html.ActionLink("Cancel and return to the list","Index");
+
+
+#line default
+#line hidden
+
+#line 14 "C:\Users\Alaa\documents\visual studio 2015\Projects\BookStore.WebUI\BookStore.WebUI\Views\Admin\Edit - Copy.cshtml"
+        }
+
+}
+}
+    <input type="submit" value="save" />
+    @Html.ActionLink("Cancel and return to the list","Index")
+}

@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+
+        .btn a { color:red;text-decoration:none;
+        }
+        body {
+            background-color:#F1F1F1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="text-center"> 
+      <h2>  Hellow @ViewBag.spec </h2>
+        <h3>Please </h3>
+        <div class="btn btn-success">
+          @Html.ActionLink("Regeser NOW","Regestiration")  <div/>
+    </div>
+</body>
+</html>

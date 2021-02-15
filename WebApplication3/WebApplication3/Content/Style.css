@@ -1,0 +1,7 @@
+﻿body {
+}
+.feild-validation-error {background-color:blue;}
+.feild-validation-valid {background:black;}
+.input-validation-error {border:dashed;}
+.validation-summary-errors {
+font-size:xx-large;}

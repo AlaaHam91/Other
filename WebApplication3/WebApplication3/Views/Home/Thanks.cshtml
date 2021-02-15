@@ -1,0 +1,26 @@
+﻿@model WebApplication3.Models.Class1
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <div> 
+        <h1>Thank you @Model.name    </h1>
+        @if(Model.withdraw == true) { 
+            @:Great
+            }
+            else 
+            { 
+            @:Donkey
+            }
+    </div>
+</body>
+</html>

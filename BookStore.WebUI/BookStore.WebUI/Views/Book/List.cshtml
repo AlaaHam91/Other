@@ -1,0 +1,20 @@
+﻿
+@model BookStore.WebUI.Models.BookListViewModel
+@{
+
+    ViewBag.Title = "Book List";
+}
+
+<h2>List</h2>
+@foreach(var b in Model.Books)
+{
+    //call partial view
+    @Html.Partial("BookSummary",b);
+}
+<div class="btn-group pull-right">
+     @Html.PageLinks(Model.paginginfo
+    ,x => Url.Action("List","Book",new { pagenum = x , specilization =Model.CurrentSpecilization})
+                     )
+</div>
+
+
